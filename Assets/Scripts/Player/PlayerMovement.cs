@@ -14,20 +14,21 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private Rigidbody2D rb;
 
     private void Update() {
+        if (Input.GetButtonDown("Cancel")) {
+            GameManager.instance.Pause();
+        }
+
+        if(GameManager.instance.IsPaused) { return; }
+        
         GetRotationInput();
             
         Swim();
 
         if(Input.GetButton("Dash") && Time.time - lastSwimTime > swimCooldown) {Dash();}
-        
-#if(UNITY_EDITOR)
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            Time.timeScale = Time.timeScale > 0 ? 0 : 1;
-        }
-#endif
     }
 
     private void FixedUpdate() {
+        if(GameManager.instance.IsPaused) { return; }
         RotatePlayer();
     }
 

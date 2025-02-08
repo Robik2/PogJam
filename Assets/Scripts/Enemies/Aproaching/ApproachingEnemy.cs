@@ -18,6 +18,8 @@ public class ApproachingEnemy : MonoBehaviour {
     }
 
     private void Update() {
+        if(GameManager.instance.IsPaused) { return; }
+        
         if (isHit) {
             agent.SetDestination(knockupPos);
             agent.speed = 2;
@@ -38,6 +40,8 @@ public class ApproachingEnemy : MonoBehaviour {
     }
 
     private void OnTriggerStay2D(Collider2D other) {
+        if(GameManager.instance.IsPaused) { return; }
+        
         if (other.CompareTag("Player") && hasHit == false) {
             other.GetComponent<HealthSystem>().TakeDamage();
             StartCoroutine(HitCD(hitCD));

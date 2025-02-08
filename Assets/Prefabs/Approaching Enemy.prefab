@@ -10,14 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 7278241643406481854}
   - component: {fileID: 3821212396290567960}
-  - component: {fileID: 3300810435311666868}
+  - component: {fileID: 7489890317534475363}
   - component: {fileID: 3696084657406695223}
   - component: {fileID: 1388843334823546717}
   - component: {fileID: 9113514089036747472}
   - component: {fileID: 4666960074992349917}
   m_Layer: 0
   m_Name: Approaching Enemy
-  m_TagString: Enemy
+  m_TagString: Approaching
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,7 +55,7 @@ MonoBehaviour:
   knockupPos: {x: 0, y: 0, z: 0}
   hitCD: 1
   anim: {fileID: 4666960074992349917}
---- !u!114 &3300810435311666868
+--- !u!114 &7489890317534475363
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,7 +83,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 0
-  m_StoppingDistance: 0
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -152,7 +152,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.12670577, y: 0}
+  m_Offset: {x: -0.190454, y: -0.118389726}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -162,7 +162,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.404054, y: 1}
+  m_Size: {x: 2.2765574, y: 0.76322055}
   m_EdgeRadius: 0
 --- !u!95 &4666960074992349917
 Animator:

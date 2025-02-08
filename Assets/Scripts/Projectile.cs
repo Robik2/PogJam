@@ -19,8 +19,13 @@ public class Projectile : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other) {
         switch (other.tag) {
-            case "Enemy":
-                other.GetComponent<EnemyTakingDamage>().Hit(transform.position);
+            case "Approaching":
+                other.GetComponent<ApproachingEnemyTakingDamage>().Hit(transform.position);
+                Destroy(gameObject);
+                break;
+            
+            case "Dashing":
+                other.GetComponent<DashingEnemyTakingDamage>().Hit(transform.position);
                 Destroy(gameObject);
                 break;
             

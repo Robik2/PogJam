@@ -5,16 +5,14 @@ using UnityEngine;
 public class HealthSystem : MonoBehaviour {
     [SerializeField] private float maxHealth;
     [SerializeField] private float invincibilityTime;
+    [SerializeField] private Animator anim;
     private float currentHealth;
     private bool hasBeenHit;
 
-    private Material modelMaterial;
     private Renderer rend;
     
     private void Start() {
         rend = GetComponentInChildren<Renderer>();
-        modelMaterial = new Material(rend.material);
-        rend.material = modelMaterial;
     }
     
     public void TakeDamage() {
@@ -24,11 +22,11 @@ public class HealthSystem : MonoBehaviour {
 
     private IEnumerator IFrames(float time) {
         hasBeenHit = true;
-        modelMaterial.color = Color.red;
+        anim.SetBool("hit", true);
         
         yield return new WaitForSeconds(time);
 
+        anim.SetBool("hit", false);
         hasBeenHit = false;
-        modelMaterial.color = Color.white;
     }
 }

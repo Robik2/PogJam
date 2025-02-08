@@ -1,8 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
-public class EnemyTakingDamage : MonoBehaviour {
-    [SerializeField] private ApproachingEnemy enemy;
+public class DashingEnemyTakingDamage : MonoBehaviour {
+    [SerializeField] private DashingEnemy enemy;
     [SerializeField] private float knockupDuration;
     private bool alreadyHit;
     

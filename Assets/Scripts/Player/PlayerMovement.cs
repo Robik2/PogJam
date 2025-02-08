@@ -19,6 +19,12 @@ public class PlayerMovement : MonoBehaviour {
         Swim();
 
         if(Input.GetButton("Dash") && Time.time - lastSwimTime > swimCooldown) {Dash();}
+        
+#if(UNITY_EDITOR)
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            Time.timeScale = Time.timeScale > 0 ? 0 : 1;
+        }
+#endif
     }
 
     private void FixedUpdate() {
@@ -46,7 +52,7 @@ public class PlayerMovement : MonoBehaviour {
     
     private void RotatePlayer() {
         // transform.rotation = Quaternion.RotateTowards(transform.rotation, rotateTo, rotationSpeed * Time.fixedDeltaTime);
-        transform.Rotate(x * rotationSpeed * Time.deltaTime, 0, 0);
+        transform.Rotate(0, 0, -x * rotationSpeed * Time.deltaTime);
         if (Input.GetAxisRaw("Vertical") == 1 && rb.velocity.magnitude < speedWhenRotating) {
             rb.velocity = transform.up * speedWhenRotating;
         }

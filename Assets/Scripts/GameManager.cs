@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private Canvas pauseCanvas;
     
     public bool IsPaused { get; set; }
+    
+    public bool alreadyStarted;
+    public float playerHealth;
 
     public void Pause() {
         Time.timeScale = Time.timeScale == 0 ? 1 : 0;

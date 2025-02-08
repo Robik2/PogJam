@@ -14,6 +14,7 @@ public class DashingEnemy : MonoBehaviour {
     [SerializeField] private float rotationSpeed;
     [SerializeField] private Animator anim;
     [SerializeField] private AnimationClip clip;
+    [SerializeField] private AudioClip swimClip;
 
     private float lastDash;
     private Quaternion rotation;
@@ -76,6 +77,7 @@ public class DashingEnemy : MonoBehaviour {
             agent.speed -= speed * Time.deltaTime;
         } else {
             anim.SetTrigger("swim");
+            SoundManager.instance.PlaySoundClip(swimClip, transform, 1);
             lastDash = Time.time;
             agent.speed = speed;
             agent.SetDestination(target.position);

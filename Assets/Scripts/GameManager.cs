@@ -10,10 +10,9 @@ public class GameManager : MonoBehaviour {
             Destroy(gameObject);
         }
     }
-
-    [SerializeField] private Canvas pauseCanvas;
     
     public bool IsPaused { get; set; }
+    public int deepLevel;
     
     public bool alreadyStarted;
     public float playerHealth;
@@ -21,6 +20,6 @@ public class GameManager : MonoBehaviour {
     public void Pause() {
         Time.timeScale = Time.timeScale == 0 ? 1 : 0;
         IsPaused = Time.timeScale == 0;
-        pauseCanvas.enabled = IsPaused;
+        PauseCanvas.instance.GetComponent<Canvas>().enabled = IsPaused;
     }
 }

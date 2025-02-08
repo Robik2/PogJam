@@ -44,7 +44,9 @@ public class HealthSystem : MonoBehaviour {
     }
 
     private void Death() {
-        Destroy(GameManager.instance);
+        Destroy(GameObject.Find("Myzuka Gry"));
+        Destroy(GameManager.instance.gameObject);
+        Destroy(PauseCanvas.instance.gameObject);
         SceneManager.LoadScene("Menu");
     }
     

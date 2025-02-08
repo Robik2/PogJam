@@ -10,6 +10,9 @@ public class ApproachingEnemy : MonoBehaviour {
     [HideInInspector] public Vector3 knockupPos;
     [SerializeField] private float hitCD;
     [SerializeField] private Animator anim;
+    [SerializeField] private AudioClip swimClip;
+
+    private float lastSwimClip;
     
     private void Start() {
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -23,9 +26,13 @@ public class ApproachingEnemy : MonoBehaviour {
         if (isHit) {
             agent.SetDestination(knockupPos);
             agent.speed = 2;
-        } else if (hasHit) { // ANIMATION FOR HIT COOLDOWN LATER DONT MAKE SWITCH
+        } else if (hasHit) {
             agent.speed = 0;
         } else { 
+            if (Time.time - lastSwimClip > swimClip.length) {
+                lastSwimClip = Time.time;
+                SoundManager.instance.PlaySoundClip(swimClip, transform, 1);
+            }
             agent.speed = 3.5f;
             agent.SetDestination(target.position);
         }

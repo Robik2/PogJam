@@ -19,6 +19,5 @@ public class PlayerUI : MonoBehaviour {
     public void UpdateHearts() {
         print((int)HealthSystem.instance.currentHealth);
         hearts[(int)HealthSystem.instance.currentHealth].GetComponent<Image>().color = new Color(0.54f, 0, 0);
-        // hearts[(int)HealthSystem.instance.currentHealth].GetComponent<Image>().enabled = false;        
     }
 }

@@ -123,6 +123,7 @@ MonoBehaviour:
   maxHealth: 3
   invincibilityTime: 1
   anim: {fileID: 8133903436378706052}
+  damageClip: {fileID: 8300000, guid: e60ea4fa6b621724183ea6405927e0cd, type: 3}
   currentHealth: 0
 --- !u!50 &1372538547303826881
 Rigidbody2D:

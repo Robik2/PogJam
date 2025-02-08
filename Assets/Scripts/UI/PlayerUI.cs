@@ -17,7 +17,6 @@ public class PlayerUI : MonoBehaviour {
     [SerializeField] private List<GameObject> hearts;
 
     public void UpdateHearts() {
-        print((int)HealthSystem.instance.currentHealth);
         hearts[(int)HealthSystem.instance.currentHealth].GetComponent<Image>().color = new Color(0.54f, 0, 0);
     }
 }

@@ -77,7 +77,7 @@ public class DashingEnemy : MonoBehaviour {
             agent.speed -= speed * Time.deltaTime;
         } else {
             anim.SetTrigger("swim");
-            SoundManager.instance.PlaySoundClip(swimClip, transform, 1);
+            SoundManager.instance.PlaySoundClip(swimClip, transform, .1f);
             lastDash = Time.time;
             agent.speed = speed;
             agent.SetDestination(target.position);

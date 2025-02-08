@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour {
     private void Dash() {
         lastSwimTime = Time.time;
         // rb.velocity = transform.up * swimSpeed;
-        SoundManager.instance.PlaySoundClip(dashClip, transform, .4f);
+        SoundManager.instance.PlaySoundClip(dashClip, transform, .1f);
         rb.velocity = transform.up * (swimSpeed - speedLossPerLevel * GameManager.instance.deepLevel);
     }
 }

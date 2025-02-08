@@ -59,7 +59,7 @@ public class HealthSystem : MonoBehaviour {
         if(PlayerUI.instance != null)
             Destroy(PlayerUI.instance.gameObject);
         
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("Menu"); // TUTAJ ZAMIENIC NA ANIMACJE SMIERCI
     }
     
     private IEnumerator IFrames(float time) {

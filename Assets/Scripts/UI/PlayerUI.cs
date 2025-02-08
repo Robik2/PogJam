@@ -13,10 +13,12 @@ public class PlayerUI : MonoBehaviour {
             Destroy(gameObject);
         }
     }
-    
-    [SerializeField] private List<GameObject> hearts;
+
+    [SerializeField] private Image healthIcon;
+    [SerializeField] private List<Sprite> tank;
 
     public void UpdateHearts() {
-        hearts[(int)HealthSystem.instance.currentHealth].GetComponent<Image>().color = new Color(0.54f, 0, 0);
+        if(HealthSystem.instance.currentHealth > 0)
+            healthIcon.sprite = tank[(int)HealthSystem.instance.currentHealth - 1];
     }
 }

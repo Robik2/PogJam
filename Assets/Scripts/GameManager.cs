@@ -4,7 +4,8 @@ public class GameManager : MonoBehaviour {
     public static GameManager instance;
     private void Awake() {
         if (instance == null) {
-            instance = this;   
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         } else {
             Destroy(gameObject);
         }
@@ -13,6 +14,9 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private Canvas pauseCanvas;
     
     public bool IsPaused { get; set; }
+    
+    public bool alreadyStarted;
+    public float playerHealth;
 
     public void Pause() {
         Time.timeScale = Time.timeScale == 0 ? 1 : 0;

@@ -82,10 +82,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swimSpeed: 15
+  speedLossPerLevel: 2
   speedWhenRotating: 2
   swimCooldown: 0.5
   rotationSpeed: 150
   rb: {fileID: 1372538547303826881}
+  swimClip: {fileID: 8300000, guid: 2255ef4066c6e384d93f7b1784e88be2, type: 3}
+  dashClip: {fileID: 8300000, guid: cc5d05b727737db4d86702d31add9a6e, type: 3}
 --- !u!114 &2044180964449005494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,6 +107,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1884397454025553680, guid: d720336d333ee4a4e952dcf0d37d4986, type: 3}
   firePoint: {fileID: 2568456972727275550}
   gunToRotate: {fileID: 3335249081133364045}
+  shootClip: {fileID: 8300000, guid: ea1ec79772937ca49bbdc61395f0187c, type: 3}
 --- !u!114 &2343521254006524087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,6 +123,8 @@ MonoBehaviour:
   maxHealth: 3
   invincibilityTime: 1
   anim: {fileID: 8133903436378706052}
+  damageClip: {fileID: 8300000, guid: e60ea4fa6b621724183ea6405927e0cd, type: 3}
+  currentHealth: 0
 --- !u!50 &1372538547303826881
 Rigidbody2D:
   serializedVersion: 4

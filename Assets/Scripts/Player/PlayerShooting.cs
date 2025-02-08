@@ -10,6 +10,8 @@ public class PlayerShooting : MonoBehaviour {
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
     [SerializeField] private Transform gunToRotate;
+    [SerializeField] private AudioClip shootClip;
+
 
     private float lastTimeShoot;
 
@@ -39,6 +41,7 @@ public class PlayerShooting : MonoBehaviour {
         
         Projectile bullet = Instantiate(bulletPrefab, firePoint.position, rotation).GetComponent<Projectile>();
         bullet.Shoot(shootRange, bulletSpeed);
+        SoundManager.instance.PlaySoundClip(shootClip, transform, 1);
     }
 
     private void WeaponLookAt() {

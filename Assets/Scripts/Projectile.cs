@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private AudioClip projectileClip;
     private float distance;
     private Vector3 startPosition;
 
@@ -9,6 +10,7 @@ public class Projectile : MonoBehaviour {
         distance = dist;
         startPosition = transform.position;
         rb.velocity = transform.up * bulletSpeed;
+        SoundManager.instance.PlaySoundClip(projectileClip, transform, 1);
     }
 
     private void Update() {

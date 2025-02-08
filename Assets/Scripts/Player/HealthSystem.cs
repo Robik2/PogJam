@@ -18,6 +18,7 @@ public class HealthSystem : MonoBehaviour {
     [SerializeField] private float maxHealth;
     [SerializeField] private float invincibilityTime;
     [SerializeField] private Animator anim;
+    [SerializeField] private AudioClip damageClip;
     [HideInInspector] public float currentHealth;
     private bool hasBeenHit;
 
@@ -34,6 +35,8 @@ public class HealthSystem : MonoBehaviour {
         currentHealth--;
         
         PlayerUI.instance.UpdateHearts();
+        print(currentHealth);
+        SoundManager.instance.PlaySoundClip(damageClip, transform, .1f);
         
         if (currentHealth <= 0) {
             Death();
@@ -44,7 +47,10 @@ public class HealthSystem : MonoBehaviour {
     }
 
     private void Death() {
-        Destroy(GameManager.instance);
+        Destroy(GameObject.Find("Myzuka Gry"));
+        Destroy(GameManager.instance.gameObject);
+        Destroy(PauseCanvas.instance.gameObject);
+        Destroy(PlayerUI.instance.gameObject);
         SceneManager.LoadScene("Menu");
     }
     

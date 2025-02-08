@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 4732987382808987330}
+  projectileClip: {fileID: 8300000, guid: 0f7bfd65cc8082944afc76dd46fb4839, type: 3}
 --- !u!50 &4732987382808987330
 Rigidbody2D:
   serializedVersion: 4

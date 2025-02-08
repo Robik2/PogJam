@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
     [Header("Movement Stats")] 
     [SerializeField] private float swimSpeed;
+    [SerializeField] private float speedLossPerLevel;
     [SerializeField] private float speedWhenRotating;
     [SerializeField] private float swimCooldown;
     [SerializeField] private float rotationSpeed;
@@ -12,7 +13,12 @@ public class PlayerMovement : MonoBehaviour {
 
     [Header("Transforms etc.")] 
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private AudioClip swimClip;
+    [SerializeField] private AudioClip dashClip;
 
+    private AudioSource swimSource;
+    private float lastSwimClip, lastDashClip;
+    
     private void Update() {
         if (Input.GetButtonDown("Cancel")) {
             GameManager.instance.Pause();
@@ -49,6 +55,12 @@ public class PlayerMovement : MonoBehaviour {
                 _ => Vector3.zero
             };
         }
+
+
+        if (Input.GetAxisRaw("Vertical") != 0 && Time.time - lastSwimClip > swimClip.length) {
+            lastSwimClip = Time.time;
+            SoundManager.instance.PlaySoundClip(swimClip, transform, 1);
+        }
     }
     
     private void RotatePlayer() {
@@ -62,6 +74,7 @@ public class PlayerMovement : MonoBehaviour {
     private void Dash() {
         lastSwimTime = Time.time;
         // rb.velocity = transform.up * swimSpeed;
-        rb.velocity = transform.up * swimSpeed;
+        SoundManager.instance.PlaySoundClip(dashClip, transform, .1f);
+        rb.velocity = transform.up * (swimSpeed - speedLossPerLevel * GameManager.instance.deepLevel);
     }
 }

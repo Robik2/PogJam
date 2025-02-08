@@ -75,6 +75,7 @@ MonoBehaviour:
   rotationSpeed: 160
   anim: {fileID: 4829912502978073628}
   clip: {fileID: 7400000, guid: 57bfa530340d32948ad12c11562a7c4d, type: 2}
+  swimClip: {fileID: 8300000, guid: aa3e6a1c84245734bb5da4d8812432ff, type: 3}
 --- !u!195 &1515102223494078234
 NavMeshAgent:
   m_ObjectHideFlags: 0

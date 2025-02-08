@@ -82,6 +82,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swimSpeed: 15
+  speedLossPerLevel: 2
   speedWhenRotating: 2
   swimCooldown: 0.5
   rotationSpeed: 150
@@ -119,6 +120,7 @@ MonoBehaviour:
   maxHealth: 3
   invincibilityTime: 1
   anim: {fileID: 8133903436378706052}
+  currentHealth: 0
 --- !u!50 &1372538547303826881
 Rigidbody2D:
   serializedVersion: 4

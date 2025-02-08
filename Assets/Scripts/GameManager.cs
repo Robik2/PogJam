@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private Canvas pauseCanvas;
     
     public bool IsPaused { get; set; }
+    public int deepLevel;
     
     public bool alreadyStarted;
     public float playerHealth;

@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
     [Header("Movement Stats")] 
     [SerializeField] private float swimSpeed;
+    [SerializeField] private float speedLossPerLevel;
     [SerializeField] private float speedWhenRotating;
     [SerializeField] private float swimCooldown;
     [SerializeField] private float rotationSpeed;
@@ -62,6 +63,6 @@ public class PlayerMovement : MonoBehaviour {
     private void Dash() {
         lastSwimTime = Time.time;
         // rb.velocity = transform.up * swimSpeed;
-        rb.velocity = transform.up * swimSpeed;
+        rb.velocity = transform.up * (swimSpeed - speedLossPerLevel * GameManager.instance.deepLevel);
     }
 }

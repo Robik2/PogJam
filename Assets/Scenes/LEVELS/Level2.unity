@@ -1757,39 +1757,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1769758350041920582, guid: 3953854f792c749469cdac9cff9fd33f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.4616024
+      value: 2.4297705
       objectReference: {fileID: 0}
     - target: {fileID: 1769758350041920582, guid: 3953854f792c749469cdac9cff9fd33f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.17238715
+      value: -0.13772808
       objectReference: {fileID: 0}
     - target: {fileID: 1769758350041920582, guid: 3953854f792c749469cdac9cff9fd33f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7146073
+      value: 0.71601
       objectReference: {fileID: 0}
     - target: {fileID: 1769758350041920582, guid: 3953854f792c749469cdac9cff9fd33f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.046836756
+      value: 0.013669354
       objectReference: {fileID: 0}
     - target: {fileID: 1769758350041920582, guid: 3953854f792c749469cdac9cff9fd33f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.6876402
+      value: 0.69244206
       objectReference: {fileID: 0}
     - target: {fileID: 1769758350041920582, guid: 3953854f792c749469cdac9cff9fd33f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.11955664
+      value: 0.08756084
       objectReference: {fileID: 0}
     - target: {fileID: 1769758350041920582, guid: 3953854f792c749469cdac9cff9fd33f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -5.594
+      value: -5.836
       objectReference: {fileID: 0}
     - target: {fileID: 1769758350041920582, guid: 3953854f792c749469cdac9cff9fd33f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 87.125
+      value: 87.657
       objectReference: {fileID: 0}
     - target: {fileID: 1769758350041920582, guid: 3953854f792c749469cdac9cff9fd33f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 13.675
+      value: 8.341
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

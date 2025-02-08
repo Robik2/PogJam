@@ -17,6 +17,8 @@ public class PlayerShooting : MonoBehaviour {
     private Quaternion rotation;
     
     private void Update() {
+        if(GameManager.instance.IsPaused) { return; }
+        
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = firePoint.position.z;
         

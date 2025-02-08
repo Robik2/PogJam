@@ -1,7 +1,9 @@
 
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class HealthSystem : MonoBehaviour {
     public static HealthSystem instance;
@@ -16,7 +18,7 @@ public class HealthSystem : MonoBehaviour {
     [SerializeField] private float maxHealth;
     [SerializeField] private float invincibilityTime;
     [SerializeField] private Animator anim;
-    private float currentHealth;
+    [HideInInspector] public float currentHealth;
     private bool hasBeenHit;
 
     private Renderer rend;
@@ -30,7 +32,9 @@ public class HealthSystem : MonoBehaviour {
         if (hasBeenHit) { return; }
 
         currentHealth--;
-
+        
+        PlayerUI.instance.UpdateHearts();
+        
         if (currentHealth <= 0) {
             Death();
             return;

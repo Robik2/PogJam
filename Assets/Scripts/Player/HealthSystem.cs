@@ -40,6 +40,7 @@ public class HealthSystem : MonoBehaviour {
     }
 
     private void Death() {
+        Destroy(GameManager.instance);
         SceneManager.LoadScene("Menu");
     }
     

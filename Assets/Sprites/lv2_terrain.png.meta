@@ -57,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -112,9 +112,9 @@ TextureImporter:
         x: 0
         y: 0
         width: 1419
-        height: 2160
+        height: 1071
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -128,28 +128,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_8158_1
-      rect:
-        serializedVersion: 2
-        x: 1432
-        y: 1635
-        width: 16
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d473e026a4c9fa820800000000000000
-      internalID: 2931733725728094029
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: IMG_8158_2
       rect:
         serializedVersion: 2
@@ -158,7 +136,7 @@ TextureImporter:
         width: 1939
         height: 2160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -171,11 +149,33 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: lv2_terrain_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1071
+        width: 483
+        height: 1089
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6aabcb07aed17c94ab559a2c8d76a143
+      internalID: 515049326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 9f5eee73e58420f4b89363cab6f78980
     internalID: 0
     vertices: []
     indices: 
@@ -186,6 +186,7 @@ TextureImporter:
       IMG_8158_0: -1558938201757036388
       IMG_8158_1: 2931733725728094029
       IMG_8158_2: -8032791799270876662
+      lv2_terrain_0: 515049326
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

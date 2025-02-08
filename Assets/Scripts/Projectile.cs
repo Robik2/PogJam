@@ -29,7 +29,7 @@ public class Projectile : MonoBehaviour {
                 Destroy(gameObject);
                 break;
             
-            case "Obstacle":
+            case "Ground":
                 Destroy(gameObject);
                 break;
         }

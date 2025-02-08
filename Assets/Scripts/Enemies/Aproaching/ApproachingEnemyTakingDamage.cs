@@ -4,12 +4,14 @@ using UnityEngine;
 public class ApproachingEnemyTakingDamage : MonoBehaviour {
     [SerializeField] private ApproachingEnemy enemy;
     [SerializeField] private float knockupDuration;
+    [SerializeField] private GameObject bubble;
+    [SerializeField] private Collider2D col;
     private bool alreadyHit;
     
     public void Hit(Vector3 pos) {
         if (alreadyHit) { return; }
 
-        enemy.knockupPos = pos + Vector3.up * 10;
+        enemy.knockupPos = pos + Vector3.up * 2;
             
         StartCoroutine(HitEnum());
     }
@@ -17,9 +19,13 @@ public class ApproachingEnemyTakingDamage : MonoBehaviour {
     private IEnumerator HitEnum() {
         enemy.isHit = true;
         alreadyHit = true;
+        bubble.SetActive(true);
+        col.enabled = false;
                 
         yield return new WaitForSeconds(knockupDuration);
 
+        col.enabled = true;
+        bubble.SetActive(false);
         alreadyHit = false;
         enemy.isHit = false;
     }

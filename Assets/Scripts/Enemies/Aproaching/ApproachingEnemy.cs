@@ -30,8 +30,10 @@ public class ApproachingEnemy : MonoBehaviour {
             agent.SetDestination(target.position);
         }
 
-        anim.SetBool("hit", isHit);
-        anim.SetFloat("speed", agent.velocity.magnitude);
+        if (anim != null) {
+            anim.SetBool("hit", isHit);
+            anim.SetFloat("speed", agent.velocity.magnitude);
+        }
         
         transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
 
@@ -50,11 +52,13 @@ public class ApproachingEnemy : MonoBehaviour {
 
     private IEnumerator HitCD(float cd) {
         hasHit = true;
-        anim.SetBool("chomp", true);
+        if(anim != null)
+            anim.SetBool("chomp", true);
 
         yield return new WaitForSeconds(cd);
 
-        anim.SetBool("chomp", false);
+        if(anim != null)
+            anim.SetBool("chomp", false);
         hasHit = false;
     }
     

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
@@ -7,6 +8,8 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private float speedWhenRotating;
     [SerializeField] private float swimCooldown;
     [SerializeField] private float rotationSpeed;
+
+    [HideInInspector] public bool geyserBoost;
 
     private float x, y, previousHorizontalInput, lastSwimTime;
     private Quaternion rotateTo;
@@ -75,6 +78,9 @@ public class PlayerMovement : MonoBehaviour {
         lastSwimTime = Time.time;
         // rb.velocity = transform.up * swimSpeed;
         SoundManager.instance.PlaySoundClip(dashClip, transform, .1f);
-        rb.velocity = transform.up * (swimSpeed - speedLossPerLevel * GameManager.instance.deepLevel);
+        print(geyserBoost);
+        rb.velocity = transform.up * ((swimSpeed - speedLossPerLevel * GameManager.instance.deepLevel) + (swimSpeed - speedLossPerLevel * GameManager.instance.deepLevel) * Convert.ToInt32(geyserBoost) / 2);
+        PlayerUI.instance.UpdateBoost(false);
+        geyserBoost = false;
     }
 }

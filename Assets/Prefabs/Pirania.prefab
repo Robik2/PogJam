@@ -209,6 +209,7 @@ MonoBehaviour:
   knockupPos: {x: 0, y: 0, z: 0}
   hitCD: 0.5
   anim: {fileID: 0}
+  swimClip: {fileID: 8300000, guid: d03475ea29f82ba469720bba573786ce, type: 3}
 --- !u!114 &4704881515190968238
 MonoBehaviour:
   m_ObjectHideFlags: 0

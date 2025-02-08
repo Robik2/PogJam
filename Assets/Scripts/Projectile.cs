@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour {
         distance = dist;
         startPosition = transform.position;
         rb.velocity = transform.up * bulletSpeed;
-        SoundManager.instance.PlaySoundClip(projectileClip, transform, 1);
+        SoundManager.instance.PlaySoundClip(projectileClip, transform, .5f);
     }
 
     private void Update() {

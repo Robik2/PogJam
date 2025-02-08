@@ -41,7 +41,7 @@ public class PlayerShooting : MonoBehaviour {
         
         Projectile bullet = Instantiate(bulletPrefab, firePoint.position, rotation).GetComponent<Projectile>();
         bullet.Shoot(shootRange, bulletSpeed);
-        SoundManager.instance.PlaySoundClip(shootClip, transform, 1);
+        SoundManager.instance.PlaySoundClip(shootClip, transform, .1f);
     }
 
     private void WeaponLookAt() {

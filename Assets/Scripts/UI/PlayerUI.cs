@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,15 +15,27 @@ public class PlayerUI : MonoBehaviour {
         
         boostBubble.color = new Color(.48f, .48f, .48f);
     }
-    
-    [SerializeField] private List<GameObject> hearts;
-    [SerializeField] private Image boostBubble;
 
-    public void UpdateHearts() {
-        hearts[(int)HealthSystem.instance.currentHealth].GetComponent<Image>().color = new Color(0.54f, 0, 0);
+    [SerializeField] private Image healthIcon;
+    [SerializeField] private List<Sprite> tank;
+    [SerializeField] private Image boostIcon;
+
+    private Canvas canv;
+
+    private void Start() {
+        canv = GetComponent<Canvas>();
     }
 
-    public void UpdateBoost(bool active) {
-        boostBubble.color = active ? Color.white : new Color(.48f, .48f, .48f);
+    private void Update() {
+        canv.enabled = HealthSystem.instance != null;
+    }
+    
+    public void UpdateHearts() {
+        if(HealthSystem.instance.currentHealth > 0)
+            healthIcon.sprite = tank[(int)HealthSystem.instance.currentHealth - 1];
+    }
+
+    public void UpdateBoost(bool geyserBoost) {
+        boostIcon.color = geyserBoost ? Color.white : new Color(.53f, .53f, .53f);
     }
 }

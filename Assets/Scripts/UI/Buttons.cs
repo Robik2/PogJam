@@ -16,9 +16,16 @@ public class Buttons : MonoBehaviour
     }
 
     public void DestroyOnLoad() {
-        Destroy(GameObject.Find("Myzuka Gry"));
-        Destroy(GameManager.instance.gameObject);
-        Destroy(PauseCanvas.instance.gameObject);
-        Destroy(PlayerUI.instance.gameObject);
+        if (GameObject.Find("Myzuka Gry") != null)
+            Destroy(GameObject.Find("Myzuka Gry"));
+        
+        if(GameManager.instance != null)
+            Destroy(GameManager.instance.gameObject);
+        
+        if(PauseCanvas.instance != null)
+            Destroy(PauseCanvas.instance.gameObject);
+        
+        if(PlayerUI.instance != null)
+            Destroy(PlayerUI.instance.gameObject);
     }
 }

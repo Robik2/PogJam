@@ -19,24 +19,25 @@ public class HealthSystem : MonoBehaviour {
     [SerializeField] private float invincibilityTime;
     [SerializeField] private Animator anim;
     [SerializeField] private AudioClip damageClip;
+    [SerializeField] private AudioClip dieClip;
     [HideInInspector] public float currentHealth;
+    [SerializeField] private GameObject model;
     private bool hasBeenHit;
 
-    private Renderer rend;
+    [HideInInspector] public bool dead;
     
     private void Start() {
-        rend = GetComponentInChildren<Renderer>();
         currentHealth = GameManager.instance.alreadyStarted == false ? maxHealth : GameManager.instance.playerHealth;
     }
     
     public void TakeDamage() {
-        if (hasBeenHit) { return; }
+        if (hasBeenHit || dead) { return; }
 
         currentHealth--;
         
         PlayerUI.instance.UpdateHearts();
         print(currentHealth);
-        SoundManager.instance.PlaySoundClip(damageClip, transform, .1f);
+        SoundManager.instance.PlaySoundClip(damageClip, transform, .03f);
         
         if (currentHealth <= 0) {
             Death();
@@ -47,14 +48,36 @@ public class HealthSystem : MonoBehaviour {
     }
 
     private void Death() {
-        Destroy(GameObject.Find("Myzuka Gry"));
-        Destroy(GameManager.instance.gameObject);
-        Destroy(PauseCanvas.instance.gameObject);
-        Destroy(PlayerUI.instance.gameObject);
+        if (dead) { return;}
+        
+        StartCoroutine(Die());
+    }
+
+    private IEnumerator Die() {
+        dead = true;
+        SoundManager.instance.PlaySoundClip(dieClip, transform, .5f);
+        model.SetActive(false);
+
+        yield return new WaitForSeconds(dieClip.length + .55f);
+        
+        if (GameObject.Find("Myzuka Gry") != null)
+            Destroy(GameObject.Find("Myzuka Gry"));
+                
+        if(GameManager.instance != null)
+            Destroy(GameManager.instance.gameObject);
+                
+        if(PauseCanvas.instance != null)
+            Destroy(PauseCanvas.instance.gameObject);
+                
+        if(PlayerUI.instance != null)
+            Destroy(PlayerUI.instance.gameObject);
+
         SceneManager.LoadScene("Menu");
     }
     
     private IEnumerator IFrames(float time) {
+        if (dead) { yield break;}
+        
         hasBeenHit = true;
         anim.SetBool("hit", true);
         

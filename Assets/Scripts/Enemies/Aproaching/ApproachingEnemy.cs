@@ -9,6 +9,7 @@ public class ApproachingEnemy : MonoBehaviour {
     [SerializeField] private NavMeshAgent agent;
     [HideInInspector] public Vector3 knockupPos;
     [SerializeField] private float hitCD;
+    [SerializeField] private float swimSpeed;
     [SerializeField] private Animator anim;
     [SerializeField] private AudioClip swimClip;
 
@@ -31,9 +32,9 @@ public class ApproachingEnemy : MonoBehaviour {
         } else { 
             if (Time.time - lastSwimClip > swimClip.length) {
                 lastSwimClip = Time.time;
-                SoundManager.instance.PlaySoundClip(swimClip, transform, 1);
+                SoundManager.instance.PlaySoundClip(swimClip, transform, .35f);
             }
-            agent.speed = 3.5f;
+            agent.speed = swimSpeed;
             agent.SetDestination(target.position);
         }
 

@@ -142,6 +142,7 @@ MonoBehaviour:
   agent: {fileID: 3696084657406695223}
   knockupPos: {x: 0, y: 0, z: 0}
   hitCD: 1
+  swimSpeed: 3.5
   anim: {fileID: 4666960074992349917}
   swimClip: {fileID: 8300000, guid: 9438b222c0cf8da4f9b139f6f71c2e4e, type: 3}
 --- !u!114 &7489890317534475363

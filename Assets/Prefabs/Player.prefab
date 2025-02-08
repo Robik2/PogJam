@@ -82,10 +82,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swimSpeed: 15
-  speedLossPerLevel: 2
+  speedLossPerLevel: 1.1
   speedWhenRotating: 2
   swimCooldown: 0.5
   rotationSpeed: 150
+  geyserBoost: 0
   rb: {fileID: 1372538547303826881}
   swimClip: {fileID: 8300000, guid: 2255ef4066c6e384d93f7b1784e88be2, type: 3}
   dashClip: {fileID: 8300000, guid: cc5d05b727737db4d86702d31add9a6e, type: 3}
@@ -124,7 +125,10 @@ MonoBehaviour:
   invincibilityTime: 1
   anim: {fileID: 8133903436378706052}
   damageClip: {fileID: 8300000, guid: e60ea4fa6b621724183ea6405927e0cd, type: 3}
+  dieClip: {fileID: 8300000, guid: bd0c4d3c67854bb4fb6440d4120109d0, type: 3}
   currentHealth: 0
+  model: {fileID: 6566881492595209102}
+  dead: 0
 --- !u!50 &1372538547303826881
 Rigidbody2D:
   serializedVersion: 4
@@ -303,6 +307,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: playermodel
       objectReference: {fileID: 0}
+    - target: {fileID: 7987054805519227178, guid: d60951661fd45f54dbcb8d9806698ac1, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ba9344d0c16a9424e8e07a3a3d57b035, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -319,5 +327,10 @@ Transform:
 --- !u!4 &5794425454325213492 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d60951661fd45f54dbcb8d9806698ac1, type: 3}
+  m_PrefabInstance: {fileID: 6333000322552975071}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6566881492595209102 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d60951661fd45f54dbcb8d9806698ac1, type: 3}
   m_PrefabInstance: {fileID: 6333000322552975071}
   m_PrefabAsset: {fileID: 0}

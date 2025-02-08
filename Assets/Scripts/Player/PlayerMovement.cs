@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
@@ -10,6 +11,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private float x, y, previousHorizontalInput, lastSwimTime;
     private Quaternion rotateTo;
+    [HideInInspector] public bool geyserBoost;
 
     [Header("Transforms etc.")] 
     [SerializeField] private Rigidbody2D rb;
@@ -20,6 +22,7 @@ public class PlayerMovement : MonoBehaviour {
     private float lastSwimClip, lastDashClip;
     
     private void Update() {
+        if (HealthSystem.instance.dead) { return;}
         if (Input.GetButtonDown("Cancel")) {
             GameManager.instance.Pause();
         }
@@ -34,6 +37,8 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void FixedUpdate() {
+        if(HealthSystem.instance.dead) {return;}
+        
         if(GameManager.instance.IsPaused) { return; }
         RotatePlayer();
     }
@@ -59,7 +64,7 @@ public class PlayerMovement : MonoBehaviour {
 
         if (Input.GetAxisRaw("Vertical") != 0 && Time.time - lastSwimClip > swimClip.length) {
             lastSwimClip = Time.time;
-            SoundManager.instance.PlaySoundClip(swimClip, transform, 1);
+            SoundManager.instance.PlaySoundClip(swimClip, transform, .3f);
         }
     }
     
@@ -75,6 +80,8 @@ public class PlayerMovement : MonoBehaviour {
         lastSwimTime = Time.time;
         // rb.velocity = transform.up * swimSpeed;
         SoundManager.instance.PlaySoundClip(dashClip, transform, .1f);
-        rb.velocity = transform.up * (swimSpeed - speedLossPerLevel * GameManager.instance.deepLevel);
+        rb.velocity = transform.up * (swimSpeed - speedLossPerLevel * GameManager.instance.deepLevel + (swimSpeed - speedLossPerLevel * GameManager.instance.deepLevel) * .5f * Convert.ToInt32(geyserBoost));
+        geyserBoost = false;
+        PlayerUI.instance.UpdateBoost(false);
     }
 }

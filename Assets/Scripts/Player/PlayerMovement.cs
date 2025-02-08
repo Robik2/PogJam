@@ -13,7 +13,6 @@ public class PlayerMovement : MonoBehaviour {
 
     private float x, y, previousHorizontalInput, lastSwimTime;
     private Quaternion rotateTo;
-    [HideInInspector] public bool geyserBoost;
 
     [Header("Transforms etc.")] 
     [SerializeField] private Rigidbody2D rb;

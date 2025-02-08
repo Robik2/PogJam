@@ -12,8 +12,6 @@ public class PlayerUI : MonoBehaviour {
         } else {
             Destroy(gameObject);
         }
-        
-        boostBubble.color = new Color(.48f, .48f, .48f);
     }
 
     [SerializeField] private Image healthIcon;

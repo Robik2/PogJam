@@ -9,6 +9,8 @@ public class ApproachingEnemy : MonoBehaviour {
     [SerializeField] private NavMeshAgent agent;
     [HideInInspector] public Vector3 knockupPos;
     [SerializeField] private float hitCD;
+    [SerializeField] private Animator anim;
+    
     private void Start() {
         target = GameObject.FindGameObjectWithTag("Player").transform;
         agent.updateRotation = false;
@@ -26,11 +28,12 @@ public class ApproachingEnemy : MonoBehaviour {
             agent.SetDestination(target.position);
         }
 
-        print(transform.position + " " + agent.destination);
+        anim.SetBool("hit", isHit);
+        anim.SetFloat("speed", agent.velocity.magnitude);
         
         transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
-        
-        
+
+        if (isHit) { return; }
         RotateTowardsPlayer();        
     }
 
@@ -43,9 +46,11 @@ public class ApproachingEnemy : MonoBehaviour {
 
     private IEnumerator HitCD(float cd) {
         hasHit = true;
+        anim.SetBool("chomp", true);
 
         yield return new WaitForSeconds(cd);
 
+        anim.SetBool("chomp", false);
         hasHit = false;
     }
     

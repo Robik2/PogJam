@@ -16,4 +16,17 @@ public class Projectile : MonoBehaviour {
             Destroy(gameObject);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        switch (other.tag) {
+            case "Enemy":
+                other.GetComponent<EnemyTakingDamage>().Hit(transform.position);
+                Destroy(gameObject);
+                break;
+            
+            case "Obstacle":
+                Destroy(gameObject);
+                break;
+        }
+    }
 }

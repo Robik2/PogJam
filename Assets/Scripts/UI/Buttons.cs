@@ -28,4 +28,12 @@ public class Buttons : MonoBehaviour
         if(PlayerUI.instance != null)
             Destroy(PlayerUI.instance.gameObject);
     }
+
+    public void EnableCanvas(Canvas canv) {
+        canv.enabled = true;
+    }
+    
+    public void DisableCanvas(Canvas canv) {
+        canv.enabled = false;
+    }
 }
